@@ -74,32 +74,33 @@ const BrowserCodeEditor: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6 gap-4">
-      <h1 className="text-3xl font-bold">Browser Code Editor</h1>
-
-      {/* Code Editor */}
-      <div
-        ref={editorRef}
-        className="w-full max-w-4xl h-96 bg-white border rounded-lg shadow overflow-hidden"></div>
+    <div className="min-h-screen bg-gray-100 p-6 ">
+      <h1 className="text-3xl font-bold text-center">Browser Code Editor</h1>
 
       {/* Run Code Button */}
       <button
         onClick={runCode}
-        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+        className="bg-blue-600 text-white px-4 py-2 mt-10 rounded-lg hover:bg-blue-700 transition">
         Run Code
       </button>
+      <div className="grid grid-cols-2 gap-4 pt-4">
+        {/* Code Editor */}
+        <div
+          ref={editorRef}
+          className="w-full h-[455px] bg-white border rounded-lg shadow overflow-hidden"></div>
 
-      {/* Output Section */}
-      <div className="w-full max-w-4xl bg-gray-50 p-4 border rounded-lg shadow">
-        <h2 className="font-semibold text-lg">Output:</h2>
-        <pre className="mt-2 bg-gray-900 text-white p-4 rounded-md overflow-auto">
-          {output}
-        </pre>
+        {/* Output Section */}
+        <div className="w-full bg-gray-50 p-4 border rounded-lg shadow">
+          <h2 className="font-semibold text-lg">Output:</h2>
+          <pre className="mt-2 h-96 bg-gray-900 text-white p-4 rounded-md overflow-auto">
+            {output}
+          </pre>
+        </div>
       </div>
 
       {/* Error Section */}
       {errorLog && (
-        <div className="w-full max-w-4xl bg-red-50 p-4 border border-red-500 rounded-lg shadow">
+        <div className="w-full mt-6 bg-red-50 p-4 border border-red-500 rounded-lg shadow">
           <h2 className="font-semibold text-lg text-red-600">Error Log:</h2>
           <pre className="mt-2 bg-red-900 text-white p-4 rounded-md overflow-auto">
             {errorLog}
